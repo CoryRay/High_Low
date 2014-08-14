@@ -5,16 +5,21 @@
 // user sees higher/lower according to guess
 // correct guess leads to game over
 
-$answer = mt_rand(1, 100);
+if ($argc == 3) {
+	$low = $argv[1];
+	$high = $argv[2];
+	$answer = mt_rand($low, $high);
+} elseif ($argc == 1) {
+	$answer = mt_rand(1, 100);
+}
+
 $guesses = 1;
-//
 
 fwrite(STDOUT, "Let's play a game. Guess what number I am thinking of.\n");
 
 $user_guess = fgets(STDIN);
 
 while ($user_guess != $answer) {
-
 	// prompt user for another answer
 	// capture stdin
 	fwrite(STDOUT, " Guess again.\n");
@@ -34,7 +39,6 @@ while ($user_guess != $answer) {
 		echo "It took you $guesses tries to figure me out.";
 		exit(0);
 	}
-
 
 } // end while statement
 
