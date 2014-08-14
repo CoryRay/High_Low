@@ -9,7 +9,7 @@ if ($argc == 3) {
 	$low = $argv[1];
 	$high = $argv[2];
 	$answer = mt_rand($low, $high);
-} elseif ($argc == 1) {
+} else {
 	$answer = mt_rand(1, 100);
 }
 
@@ -22,8 +22,6 @@ $user_guess = fgets(STDIN);
 while ($user_guess != $answer) {
 	// prompt user for another answer
 	// capture stdin
-	fwrite(STDOUT, " Guess again.\n");
-	$user_guess = fgets(STDIN);
 	$guesses++; //tracks guesses for use later
 
 	if ($user_guess > $answer) {
@@ -33,13 +31,12 @@ while ($user_guess != $answer) {
 	elseif ($user_guess < $answer) {
 		echo "Higher.";
 	}
-
-	elseif ($user_guess == $answer) {
-		echo "Good guess!\n";
-		echo "It took you $guesses tries to figure me out.";
-		exit(0);
-	}
+	
+	fwrite(STDOUT, " Guess again.\n");
+	$user_guess = fgets(STDIN);
 
 } // end while statement
 
+		echo "Good guess!\n";
+		echo "It took you $guesses tries to figure me out.";
 ?>
