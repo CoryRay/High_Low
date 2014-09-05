@@ -37,6 +37,7 @@ while ($user_guess != $answer) {
 
 } // end while statement
 
-		echo "Good guess!\n";
-		echo "It took you $guesses tries to figure me out.";
+echo "Good guess!\n";
+echo "It took you $guesses tries to figure me out.";
+
 ?>
